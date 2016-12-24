@@ -1,0 +1,22 @@
+<!--login.html-->
+{% extends "base.html" %}
+{% block content %}
+{% load bootstrap %}
+<div class="container center-block" style="width: 40%">
+	<form class="form-signin" role="form" method = 'post' >
+	<h2 class="form-signin-heading">登陆页面</h2>
+	 {% if error %}
+    	<div class="alert alert-danger" role="alert">Your username and password didn't match. Please try again. {{ error }} </div>
+  	{% endif %}
+	 {% csrf_token %}
+	 {{ uf|bootstrap_horizontal:'col-lg-4' }}
+	 <br>
+	 <br>
+	 <br>
+	 <button class="btn btn-primary " type="submit" style="width: 90px">Log in</button>
+	</form>
+	<br>
+	<a class="btn btn-primary "   style="width: 90px" href="/regist" >sign up</a>
+</div>
+
+{% endblock %}
